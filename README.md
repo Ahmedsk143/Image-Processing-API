@@ -49,7 +49,11 @@ GET /api/images?filename=wolf&width=400&height=500
 
 # Additional Features
 
-1. Modify the thumbnail filename to include the image size to allow for multiple sizes of the same image.
+1. The thumbnail filename includes the image size to allow for multiple sizes of the same image.
+2. Logging into the server terminal to record when images are processed or accessed.
+3. A front-end for uploading more images to the full-size directory.
+4. A front-end to display the thumbnail directory.
+5. A front-end to select how to process a selected image.
 
 # Built with
 

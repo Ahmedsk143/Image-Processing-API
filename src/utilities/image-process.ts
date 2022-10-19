@@ -8,10 +8,11 @@ const imageProcess = (req: express.Request, res: express.Response): void => {
     const height = parseInt(req.query.height as string);
     const name = req.query.filename as unknown as string;
     const sourceImg = `src/full/${name}.jpg`;
-    const outputImg = `src/thumb/${name}-width${width}-height${height}.jpg`;
+    const outputImg = `src/thumb/${name}-width=${width}-height=${height}.jpg`;
     // The user sent the filename, width, height
     if (name && width && height) {
         if (fs.existsSync(outputImg)) {
+            console.log('A thumbnail image has been sent');
             res.status(200).sendFile(path.resolve(outputImg));
         } else {
             sharp(sourceImg)
@@ -22,7 +23,7 @@ const imageProcess = (req: express.Request, res: express.Response): void => {
                         console.log(err);
                         res.status(400).json({ message: 'Image not found' });
                     } else {
-                        console.log('Image has been processed');
+                        console.log('Image has been processed and sent');
                         res.status(200).sendFile(path.resolve(outputImg));
                     }
                 });
@@ -30,6 +31,7 @@ const imageProcess = (req: express.Request, res: express.Response): void => {
         // The user only provides the name
     } else if (name) {
         if (fs.existsSync(sourceImg)) {
+            console.log('A full image has been sent');
             res.status(200).sendFile(path.resolve(sourceImg));
         } else {
             res.status(400).json({ message: 'Image not found' });
