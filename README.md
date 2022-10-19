@@ -53,10 +53,10 @@ GET /api/images?filename=wolf&width=400&height=500
 
 # Built with
 
-## Nodejs
+-   Nodejs
 
-## Express.js
+-   Express.js
 
-## Typescript
+-   Typescript
 
-## Jasmine
+-   Jasmine
