@@ -15,7 +15,11 @@ const upload = multer({ storage: storage });
 const images = express.Router();
 
 images.get('/', imageProcess);
-images.post('/', upload.single('image'), (req, res) => {
-    res.json({ message: 'Request recived' });
-});
+images.post(
+    '/',
+    upload.single('image'),
+    (req: express.Request, res: express.Response): void => {
+        res.json({ message: 'Request recived' });
+    }
+);
 export default images;
