@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <script src="app.js" defer></script>
+        <title>Manage your images</title>
+    </head>
+    <body>
+        <aside>
+            <h2 class="mb-2">On The Server</h2>
+            <h3>Full Size Images</h3>
+            <ul id="full"></ul>
+            <h3>Scaled Thumbnails Images</h3>
+            <ul id="thumb"></ul>
+        </aside>
+        <main>
+            <h1>Image Processing API</h1>
+            <form
+                action="/api/images"
+                method="post"
+                id="saveForm"
+                enctype="multipart/form-data"
+            >
+                <h2 class="mb-1">Upload a new image</h2>
+                <input
+                    type="file"
+                    id="upload"
+                    name="image"
+                    accept="image/jpeg"
+                />
+                <label for="upload">Upload new image</label>
+                <input type="text" name="name" placeholder="Optional name" />
+                <button type="submit">Upload</button>
+            </form>
+            <form action="/api/images" method="get" id="fetchForm">
+                <h2>Fetch a server side processed image</h2>
+                <label for="filename">Filename:</label>
+                <input
+                    type="text"
+                    id="filename"
+                    name="filename"
+                    placeholder="name"
+                />
+                <label for="width">Width:</label>
+
+                <input
+                    type="text"
+                    id="width"
+                    name="width"
+                    placeholder="width"
+                />
+                <label for="height">Height:</label>
+
+                <input
+                    type="text"
+                    id="height"
+                    name="height"
+                    placeholder="height"
+                />
+                <button type="submit">Fetch</button>
+            </form>
+        </main>
+    </body>
+</html>
