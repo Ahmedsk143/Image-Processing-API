@@ -4,8 +4,8 @@ import fs from 'fs';
 import transform from './transform';
 
 const imageProcess = (req: express.Request, res: express.Response): void => {
-    const width = parseInt(req.query.width as string);
-    const height = parseInt(req.query.height as string);
+    const width = Number(req.query.width as string);
+    const height = Number(req.query.height as string);
     const name = req.query.filename as unknown as string;
     const sourceImg = `src/full/${name}.jpg`;
     const outputImg = `src/thumb/${name}-width=${width}-height=${height}.jpg`;
